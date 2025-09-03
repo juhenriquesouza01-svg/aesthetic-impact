@@ -12,17 +12,17 @@
 <body class="bg-black text-white font-sans">
 
   <!-- Navbar -->
-  <header class="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-md z-50 shadow-md">
-    <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+  <header class="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-md z-50 shadow-md px-4 md:px-6">
+    <nav class="max-w-7xl mx-auto py-4 flex justify-between items-center">
       
       <!-- Logo + Nome -->
       <a href="#home" class="flex items-center space-x-3">
-        <img src="Fotos/logo.png.png" alt="Logo Aesthetic Impact" class="h-10">
-        <span class="text-xl font-bold text-blue-400">Aesthetic Impact</span>
+        <img src="Fotos/logo.png.png" alt="Logo Aesthetic Impact" class="h-10 md:h-12">
+        <span class="text-xl md:text-2xl font-bold text-blue-400">Aesthetic Impact</span>
       </a>
       
       <!-- Menu -->
-      <ul class="flex space-x-6 text-gray-300">
+      <ul class="flex space-x-4 md:space-x-6 text-gray-300 text-sm md:text-base">
         <li><a href="#home" class="hover:text-blue-400 transition">Início</a></li>
         <li><a href="#about" class="hover:text-blue-400 transition">Sobre</a></li>
         <li><a href="#portfolio" class="hover:text-blue-400 transition">Portfólio</a></li>
@@ -32,7 +32,7 @@
   </header>
 
   <!-- Home -->
-  <section id="home" class="h-screen flex flex-col justify-center items-center text-center px-6">
+  <section id="home" class="h-screen flex flex-col justify-center items-center text-center px-6 pt-24 md:pt-0">
     <img src="Fotos/logo.png.png" alt="Logo Aesthetic Impact" class="h-32 mb-6 drop-shadow-lg">
     <h2 class="text-5xl md:text-6xl font-extrabold text-blue-400 mb-4">Aesthetic Impact</h2>
     <p class="text-lg text-gray-300 max-w-2xl">
@@ -52,81 +52,80 @@
   </section>
 
   <!-- Portfólio -->
-<section id="portfolio" class="min-h-screen bg-black text-white px-8 py-16">
-  <h2 class="text-4xl font-bold text-center text-blue-400 mb-12">Portfólio</h2>
+  <section id="portfolio" class="min-h-screen bg-black text-white px-8 py-16">
+    <h2 class="text-4xl font-bold text-center text-blue-400 mb-12">Portfólio</h2>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <!-- Burger Antes -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg hover:shadow-blue-500/50 transition overflow-hidden">
+        <div class="flex justify-center items-center" style="height: 300px;">
+          <img src="Fotos/burger-antes.jpg.jpg" alt="Foto Não Tratada - Hambúrguer" class="max-h-full max-w-full object-contain">
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold text-blue-400 mb-2">Foto Não Tratada</h3>
+          <p class="text-gray-300">Imagem capturada com boa câmera, mas ainda sem realce de seu potencial.</p>
+        </div>
+      </div>
 
-    <!-- Burger Antes -->
-    <div class="bg-gray-900 rounded-2xl shadow-lg hover:shadow-blue-500/50 transition overflow-hidden">
-      <div class="flex justify-center items-center" style="height: 300px;">
-        <img src="Fotos/burger-antes.jpg.jpg" alt="Foto Não Tratada - Hambúrguer" class="max-h-full max-w-full object-contain">
+      <!-- Burger Depois -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg hover:shadow-blue-500/50 transition overflow-hidden">
+        <div class="flex justify-center items-center" style="height: 300px;">
+          <img src="Fotos/burger-depois.jpg.png" alt="Foto Tratada - Hambúrguer" class="max-h-full max-w-full object-contain">
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold text-blue-400 mb-2">Foto Tratada</h3>
+          <p class="text-gray-300">Imagem tratada para realçar cores, texturas e detalhes, mostrando todo seu potencial.</p>
+        </div>
       </div>
-      <div class="p-4">
-        <h3 class="text-xl font-semibold text-blue-400 mb-2">Foto Não Tratada</h3>
-        <p class="text-gray-300">Imagem capturada com boa câmera, mas ainda sem realce de seu potencial.</p>
+
+      <!-- Carro Antes -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg hover:shadow-blue-500/50 transition overflow-hidden">
+        <div class="flex justify-center items-center" style="height: 300px;">
+          <img src="Fotos/gol-antes.jpg.png" alt="Foto Não Tratada - Carro" class="max-h-full max-w-full object-contain">
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold text-blue-400 mb-2">Foto Não Tratada</h3>
+          <p class="text-gray-300">Aqui temos uma imagem correta, mas que pode ser levada a outro nível.</p>
+        </div>
       </div>
+
+      <!-- Carro Depois -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg hover:shadow-blue-500/50 transition overflow-hidden">
+        <div class="flex justify-center items-center" style="height: 300px;">
+          <img src="Fotos/gol-depois.jpg.png" alt="Foto Tratada - Carro" class="max-h-full max-w-full object-contain">
+        </div>
+        <div class="p-4">
+          <h3 class="text-xl font-semibold text-blue-400 mb-2">Foto Tratada</h3>
+          <p class="text-gray-300">Sem acrescentar nem remover nada, apenas realçada para transmitir o máximo impacto.</p>
+        </div>
+      </div>
+
+      <!-- Hambúrguer 2 Antes -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg hover:shadow-blue-500/50 transition overflow-hidden">
+        <div class="flex justify-center items-center" style="height: 300px;">
+          <img src="Fotos/hamburger2-antes.jpg.jpg" alt="Antes - Hambúrguer 2" class="max-h-full max-w-full object-contain">
+        </div>
+        <div class="p-4 text-center">
+          <h3 class="text-xl font-semibold text-blue-400 mb-2">Foto Não Tratada</h3>
+          <p class="text-gray-300 italic">"Mesmo com equipamento profissional, a imagem ainda não revela toda sua força."</p>
+        </div>
+      </div>
+
+      <!-- Hambúrguer 2 Depois -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg hover:shadow-blue-500/50 transition overflow-hidden">
+        <div class="flex justify-center items-center" style="height: 300px;">
+          <img src="Fotos/hamburger2-depois.jpg.png" alt="Depois - Hambúrguer 2" class="max-h-full max-w-full object-contain">
+        </div>
+        <div class="p-4 text-center">
+          <h3 class="text-xl font-semibold text-blue-400 mb-2">Foto Tratada</h3>
+          <p class="text-gray-300 italic">"Agora a foto revela seu máximo, aliando técnica e realce visual natural."</p>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-    <!-- Burger Depois -->
-    <div class="bg-gray-900 rounded-2xl shadow-lg hover:shadow-blue-500/50 transition overflow-hidden">
-      <div class="flex justify-center items-center" style="height: 300px;">
-        <img src="Fotos/burger-depois.jpg.png" alt="Foto Tratada - Hambúrguer" class="max-h-full max-w-full object-contain">
-      </div>
-      <div class="p-4">
-        <h3 class="text-xl font-semibold text-blue-400 mb-2">Foto Tratada</h3>
-        <p class="text-gray-300">Imagem tratada para realçar cores, texturas e detalhes, mostrando todo seu potencial.</p>
-      </div>
-    </div>
-
-    <!-- Carro Antes -->
-    <div class="bg-gray-900 rounded-2xl shadow-lg hover:shadow-blue-500/50 transition overflow-hidden">
-      <div class="flex justify-center items-center" style="height: 300px;">
-        <img src="Fotos/gol-antes.jpg.png" alt="Foto Não Tratada - Carro" class="max-h-full max-w-full object-contain">
-      </div>
-      <div class="p-4">
-        <h3 class="text-xl font-semibold text-blue-400 mb-2">Foto Não Tratada</h3>
-        <p class="text-gray-300">Aqui temos uma imagem correta, mas que pode ser levada a outro nível.</p>
-      </div>
-    </div>
-
-    <!-- Carro Depois -->
-    <div class="bg-gray-900 rounded-2xl shadow-lg hover:shadow-blue-500/50 transition overflow-hidden">
-      <div class="flex justify-center items-center" style="height: 300px;">
-        <img src="Fotos/gol-depois.jpg.png" alt="Foto Tratada - Carro" class="max-h-full max-w-full object-contain">
-      </div>
-      <div class="p-4">
-        <h3 class="text-xl font-semibold text-blue-400 mb-2">Foto Tratada</h3>
-        <p class="text-gray-300">Sem acrescentar nem remover nada, apenas realçada para transmitir o máximo impacto.</p>
-      </div>
-    </div>
-
-    <!-- Hambúrguer 2 Antes -->
-    <div class="bg-gray-900 rounded-2xl shadow-lg hover:shadow-blue-500/50 transition overflow-hidden">
-      <div class="flex justify-center items-center" style="height: 300px;">
-        <img src="Fotos/hamburger2-antes.jpg.jpg" alt="Antes - Hambúrguer 2" class="max-h-full max-w-full object-contain">
-      </div>
-      <div class="p-4 text-center">
-        <h3 class="text-xl font-semibold text-blue-400 mb-2">Foto Não Tratada</h3>
-        <p class="text-gray-300 italic">"Mesmo com equipamento profissional, a imagem ainda não revela toda sua força."</p>
-      </div>
-    </div>
-
-    <!-- Hambúrguer 2 Depois -->
-    <div class="bg-gray-900 rounded-2xl shadow-lg hover:shadow-blue-500/50 transition overflow-hidden">
-      <div class="flex justify-center items-center" style="height: 300px;">
-        <img src="Fotos/hamburger2-depois.jpg.png" alt="Depois - Hambúrguer 2" class="max-h-full max-w-full object-contain">
-      </div>
-      <div class="p-4 text-center">
-        <h3 class="text-xl font-semibold text-blue-400 mb-2">Foto Tratada</h3>
-        <p class="text-gray-300 italic">"Agora a foto revela seu máximo, aliando técnica e realce visual natural."</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Contato -->
+  <!-- Contato -->
   <section id="contact" class="min-h-screen bg-gray-900 flex flex-col justify-center items-center px-8 py-16 text-center">
     <h2 class="text-4xl font-bold text-blue-400 mb-6">Contato</h2>
     <p class="text-gray-300 mb-6">Entre em contato para transformar suas imagens em algo inesquecível.</p>
