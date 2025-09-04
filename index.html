@@ -14,39 +14,41 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     
     :root {
-      --primary-blue: #1a56db;
-      --dark-blue: #0f2e68;
-      --light-blue: #e6f0ff;
+      --primary-blue: #3b82f6;
+      --dark-blue: #1e40af;
       --dark-bg: #0f172a;
-      --text-dark: #1f2937;
-      --accent-gray: #4b5563;
+      --darker-bg: #0a0e1a;
+      --card-bg: #1e293b;
+      --text-light: #f1f5f9;
+      --text-muted: #94a3b8;
     }
     
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: var(--text-dark);
+      background-color: var(--darker-bg);
+      color: var(--text-light);
+      scroll-behavior: smooth;
     }
     
     .gradient-text {
-      background: linear-gradient(90deg, var(--primary-blue), #2563eb);
+      background: linear-gradient(90deg, var(--primary-blue), #60a5fa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
     
     .professional-card {
-      background: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      background: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
       transition: all 0.3s ease;
       overflow: hidden;
-      border: 1px solid #e5e7eb;
+      border: 1px solid #334155;
     }
     
     .professional-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
     }
     
     .service-icon {
@@ -59,6 +61,7 @@
       position: relative;
       display: inline-block;
       margin-bottom: 2rem;
+      color: var(--text-light);
     }
     
     .section-title:after {
@@ -84,9 +87,9 @@
     }
     
     .btn-primary:hover {
-      background: #0f2e68;
+      background: var(--dark-blue);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(26, 86, 219, 0.2);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
     }
     
     .btn-outline {
@@ -110,7 +113,7 @@
     .nav-link {
       position: relative;
       font-weight: 500;
-      color: #374151;
+      color: #cbd5e1;
     }
     
     .nav-link:after {
@@ -137,8 +140,8 @@
     }
     
     .testimonial-card {
-      background: #f9fafb;
-      border-radius: 8px;
+      background: var(--card-bg);
+      border-radius: 10px;
       padding: 2rem;
       border-left: 4px solid var(--primary-blue);
     }
@@ -165,24 +168,6 @@
       color: white;
     }
     
-    .portfolio-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(26, 86, 219, 0.9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: all 0.3s;
-    }
-    
-    .portfolio-item:hover .portfolio-overlay {
-      opacity: 1;
-    }
-    
     .social-btn {
       display: inline-flex;
       align-items: center;
@@ -199,22 +184,66 @@
       transform: translateY(-3px);
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
+
+    .mobile-menu {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+    
+    .bg-dark-gradient {
+      background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+    }
+    
+    .bg-card-gradient {
+      background: linear-gradient(135deg, var(--card-bg) 0%, #273549 100%);
+    }
+    
+    .portfolio-img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+    
+    .img-container {
+      overflow: hidden;
+      border-radius: 8px;
+      background: #1e293b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .portfolio-item {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    @media (max-width: 768px) {
+      .portfolio-item {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
-<body>
+<body class="bg-dark-gradient">
 
   <!-- Navbar Profissional -->
-  <header class="fixed top-0 left-0 w-full bg-white shadow-sm z-50 px-4 md:px-6">
+  <header class="fixed top-0 left-0 w-full bg-[#0f172a] shadow-sm z-50 px-4 md:px-6 border-b border-slate-800">
     <nav class="max-w-7xl mx-auto py-4 flex justify-between items-center">
       
       <!-- Logo + Nome -->
       <a href="#home" class="flex items-center space-x-3">
         <img src="Fotos/logo.png.png" alt="Logo Aesthetic Impact" class="h-10 md:h-12">
-        <span class="text-xl md:text-2xl font-bold text-gray-800">AESTHETIC IMPACT</span>
+        <span class="text-xl md:text-2xl font-bold text-white">AESTHETIC IMPACT</span>
       </a>
       
-      <!-- Menu -->
-      <ul class="hidden md:flex space-x-8 text-gray-700 text-base">
+      <!-- Menu Desktop -->
+      <ul class="hidden md:flex space-x-8 text-base">
         <li><a href="#home" class="nav-link active">Início</a></li>
         <li><a href="#about" class="nav-link">Sobre</a></li>
         <li><a href="#services" class="nav-link">Serviços</a></li>
@@ -224,18 +253,36 @@
       </ul>
       
       <!-- Mobile Menu Button -->
-      <button class="md:hidden text-gray-700">
+      <button id="mobile-menu-button" class="md:hidden text-gray-300">
         <i class="fas fa-bars text-2xl"></i>
       </button>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-64 bg-slate-900 shadow-lg z-50 p-6 md:hidden border-r border-slate-800">
+      <div class="flex justify-between items-center mb-8">
+        <img src="Fotos/logo.png.png" alt="Logo Aesthetic Impact" class="h-10">
+        <button id="close-menu" class="text-gray-300">
+          <i class="fas fa-times text-2xl"></i>
+        </button>
+      </div>
+      <ul class="space-y-6">
+        <li><a href="#home" class="nav-link active block py-2">Início</a></li>
+        <li><a href="#about" class="nav-link block py-2">Sobre</a></li>
+        <li><a href="#services" class="nav-link block py-2">Serviços</a></li>
+        <li><a href="#portfolio" class="nav-link block py-2">Portfólio</a></li>
+        <li><a href="#testimonials" class="nav-link block py-2">Clientes</a></li>
+        <li><a href="#contact" class="nav-link block py-2">Contato</a></li>
+      </ul>
+    </div>
   </header>
 
   <!-- Home Section -->
-  <section id="home" class="pt-32 pb-20 px-6 bg-gradient-to-b from-white to-blue-50">
+  <section id="home" class="pt-32 pb-20 px-6 bg-gradient-to-b from-slate-900 to-slate-800">
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
       <div>
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Transformação Visual <span class="gradient-text">Profissional</span></h1>
-        <p class="text-lg text-gray-700 mb-8">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Transformação Visual <span class="gradient-text">Profissional</span></h1>
+        <p class="text-lg text-slate-300 mb-8">
           Potencializamos a presença digital de empresas através de edição de imagens premium e desenvolvimento web estratégico, aumentando conversões e valor de marca.
         </p>
         <div class="flex flex-wrap gap-4">
@@ -248,23 +295,23 @@
         </div>
       </div>
       <div class="order-first md:order-last">
-        <div class="professional-card p-6">
+        <div class="professional-card p-6 bg-card-gradient">
           <div class="grid grid-cols-2 gap-4">
-            <div class="bg-gray-100 rounded-lg p-4 text-center">
+            <div class="bg-slate-800 rounded-lg p-4 text-center">
               <i class="fas fa-image service-icon"></i>
-              <h3 class="font-semibold">Edição de Imagens</h3>
+              <h3 class="font-semibold text-white">Edição de Imagens</h3>
             </div>
-            <div class="bg-gray-100 rounded-lg p-4 text-center">
+            <div class="bg-slate-800 rounded-lg p-4 text-center">
               <i class="fas fa-laptop-code service-icon"></i>
-              <h3 class="font-semibold">Web Design</h3>
+              <h3 class="font-semibold text-white">Web Design</h3>
             </div>
-            <div class="bg-gray-100 rounded-lg p-4 text-center">
+            <div class="bg-slate-800 rounded-lg p-4 text-center">
               <i class="fas fa-palette service-icon"></i>
-              <h3 class="font-semibold">Identidade Visual</h3>
+              <h3 class="font-semibold text-white">Identidade Visual</h3>
             </div>
-            <div class="bg-gray-100 rounded-lg p-4 text-center">
+            <div class="bg-slate-800 rounded-lg p-4 text-center">
               <i class="fas fa-chart-line service-icon"></i>
-              <h3 class="font-semibold">Resultados</h3>
+              <h3 class="font-semibold text-white">Resultados</h3>
             </div>
           </div>
         </div>
@@ -273,57 +320,57 @@
   </section>
 
   <!-- Stats Section -->
-  <section class="py-12 bg-white">
+  <section class="py-12 bg-slate-800">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         <div>
           <div class="stat-number">80+</div>
-          <p class="text-gray-600">Projetos Concluídos</p>
+          <p class="text-slate-400">Projetos Concluídos</p>
         </div>
         <div>
           <div class="stat-number">100%</div>
-          <p class="text-gray-600">Clientes Satisfeitos</p>
+          <p class="text-slate-400">Clientes Satisfeitos</p>
         </div>
         <div>
           <div class="stat-number">2</div>
-          <p class="text-gray-600">Anos de Experiência</p>
+          <p class="text-slate-400">Anos de Experiência</p>
         </div>
         <div>
           <div class="stat-number">25+</div>
-          <p class="text-gray-600">Clientes Ativos</p>
+          <p class="text-slate-400">Clientes Ativos</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Sobre -->
-  <section id="about" class="py-20 px-8 bg-gray-50">
+  <section id="about" class="py-20 px-8 bg-slate-900">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 section-title">SOBRE NÓS</h2>
+      <h2 class="text-3xl font-bold text-white section-title">SOBRE NÓS</h2>
       
-      <div class="professional-card p-8 mb-12">
-        <p class="text-gray-700 text-lg mx-auto text-justify">
-          Fundada em 2024, a Aesthetic Impact surge como uma empresa inovadora no mercado de transformação visual digital, oferecendo soluções de ponta para empresas que buscam destacar-se em ambientes competitivos. Combinamos expertise técnica com sensibilidade artística para potencializar o impacto visual de marcas, produtos e serviços, sempre com foco em inovação e qualidade superior em web design e tratamento de imagens.
+      <div class="professional-card p-8 mb-12 bg-card-gradient">
+        <p class="text-slate-300 text-lg mx-auto text-justify">
+          Fundada em 2024, a Aesthetic Impact surge como uma empresa inovadora no mercado de transformação visual digital, oferecendo soluções de ponta para empresas que buscam destacar-se em ambientes competitivos. Combinamos expertise técnica com sensibilidade artística para potencializar o impacto visual de marcas, produtos e serviços, sempre com foco inovação e qualidade superior em web design e tratamento de imagens.
         </p>
       </div>
       
       <div class="grid md:grid-cols-2 gap-12">
-        <div class="professional-card p-8">
+        <div class="professional-card p-8 bg-card-gradient">
           <div class="service-icon">
             <i class="fas fa-bullseye"></i>
           </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">Nossa Missão</h3>
-          <p class="text-gray-700">
+          <h3 class="text-2xl font-bold text-white mb-4">Nossa Missão</h3>
+          <p class="text-slate-300">
             Oferecer soluções visuais de alto impacto que elevem a percepção de valor de produtos e serviços, contribuindo para o crescimento e sucesso de nossos clientes.
           </p>
         </div>
         
-        <div class="professional-card p-8">
+        <div class="professional-card p-8 bg-card-gradient">
           <div class="service-icon">
             <i class="fas fa-eye"></i>
           </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">Nossa Visão</h3>
-          <p class="text-gray-700">
+          <h3 class="text-2xl font-bold text-white mb-4">Nossa Visão</h3>
+          <p class="text-slate-300">
             Ser referência em excelência visual digital, reconhecida pela qualidade técnica, inovação e pelos resultados tangíveis entregues aos clientes.
           </p>
         </div>
@@ -332,26 +379,26 @@
   </section>
 
   <!-- Serviços -->
-  <section id="services" class="py-20 px-8 bg-white">
+  <section id="services" class="py-20 px-8 bg-slate-800">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 section-title">NOSSOS SERVIÇOS</h2>
-      <p class="text-gray-600 max-w-2xl mb-16">Soluções profissionais para elevar sua presença digital e impulsionar seus resultados</p>
+      <h2 class="text-3xl font-bold text-white section-title">NOSSOS SERVIÇOS</h2>
+      <p class="text-slate-400 max-w-2xl mb-16">Soluções profissionais para elevar sua presença digital e impulsionar seus resultados</p>
       
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Edição de Imagens -->
-        <div class="professional-card p-8 text-center">
+        <div class="professional-card p-8 text-center bg-card-gradient">
           <div class="service-icon">
             <i class="fas fa-image"></i>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-4">Edição de Imagens Profissional</h3>
-          <p class="text-gray-700 mb-6">
+          <h3 class="text-xl font-bold text-white mb-4">Edição de Imagens Profissional</h3>
+          <p class="text-slate-300 mb-6">
             Transformação técnica e artística de imagens para realçar qualidades e aumentar o apelo comercial.
           </p>
-          <ul class="text-left text-gray-600 space-y-2 mb-6">
-            <li><i class="fas fa-check-circle text-blue-600 mr-2"></i> Correção profissional de cores</li>
-            <li><i class="fas fa-check-circle text-blue-600 mr-2"></i> Tratamento de luz e sombras</li>
-            <li><i class="fas fa-check-circle text-blue-600 mr-2"></i> Realce de texturas e detalhes</li>
-            <li><i class="fas fa-check-circle text-blue-600 mr-2"></i> Composição e enquadramento</li>
+          <ul class="text-left text-slate-400 space-y-2 mb-6">
+            <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Correção profissional de cores</li>
+            <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Tratamento de luz e sombras</li>
+            <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Realce de texturas e detalhes</li>
+            <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Composição e enquadramento</li>
           </ul>
           <a href="#contact" class="btn-outline w-full justify-center">
             <i class="fas fa-pen-nib mr-2"></i>Solicitar Serviço
@@ -359,19 +406,19 @@
         </div>
         
         <!-- Web Design -->
-        <div class="professional-card p-8 text-center">
+        <div class="professional-card p-8 text-center bg-card-gradient">
           <div class="service-icon">
             <i class="fas fa-laptop-code"></i>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-4">Web Design Corporativo</h3>
-          <p class="text-gray-700 mb-6">
+          <h3 class="text-xl font-bold text-white mb-4">Web Design Corporativo</h3>
+          <p class="text-slate-300 mb-6">
             Desenvolvimento de sites institucionais e landing pages com foco em conversão e experiência do usuário.
           </p>
-          <ul class="text-left text-gray-600 space-y-2 mb-6">
-            <li><i class="fas fa-check-circle text-blue-600 mr-2"></i> Design responsivo e moderno</li>
-            <li><i class="fas fa-check-circle text-blue-600 mr-2"></i> Otimização para mecanismos de busca</li>
-            <li><i class="fas fa-check-circle text-blue-600 mr-2"></i> Integração com analytics</li>
-            <li><i class="fas fa-check-circle text-blue-600 mr-2"></i> Performance otimizada</li>
+          <ul class="text-left text-slate-400 space-y-2 mb-6">
+            <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Design responsivo e moderno</li>
+            <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Otimização para mecanismos de busca</li>
+            <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Integração com analytics</li>
+            <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Performance otimizada</li>
           </ul>
           <a href="#contact" class="btn-outline w-full justify-center">
             <i class="fas fa-code mr-2"></i>Solicitar Serviço
@@ -379,19 +426,19 @@
         </div>
         
         <!-- Identidade Visual -->
-        <div class="professional-card p-8 text-center">
+        <div class="professional-card p-8 text-center bg-card-gradient">
           <div class="service-icon">
             <i class="fas fa-palette"></i>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-4">Identidade Visual</h3>
-          <p class="text-gray-700 mb-6">
+          <h3 class="text-xl font-bold text-white mb-4">Identidade Visual</h3>
+          <p class="text-slate-300 mb-6">
             Desenvolvimento de identidades visuais coerentes que comunicam valores e diferencial competitivo.
           </p>
-          <ul class="text-left text-gray-600 space-y-2 mb-6">
-            <li><i class="fas fa-check-circle text-blue-600 mr-2"></i> Criação de logotipo</li>
-            <li><i class="fas fa-check-circle text-blue-600 mr-2"></i> Manual de marca</li>
-            <li><i class="fas fa-check-circle text-blue-600 mr-2"></i> Aplicações gráficas</li>
-            <li><i class="fas fa-check-circle text-blue-600 mr-2"></i> Diretrizes de uso</li>
+          <ul class="text-left text-slate-400 space-y-2 mb-6">
+            <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Criação de logotipo</li>
+            <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Manual de marca</li>
+            <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Aplicações gráficas</li>
+            <li><i class="fas fa-check-circle text-blue-400 mr-2"></i> Diretrizes de uso</li>
           </ul>
           <a href="#contact" class="btn-outline w-full justify-center">
             <i class="fas fa-brush mr-2"></i>Solicitar Serviço
@@ -402,93 +449,94 @@
   </section>
 
   <!-- Portfólio -->
-  <section id="portfolio" class="py-20 px-8 bg-gray-50">
+  <section id="portfolio" class="py-20 px-8 bg-slate-900">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 section-title">PORTFÓLIO</h2>
-      <p class="text-gray-600 max-w-2xl mb-16">Alguns dos nossos trabalhos recentes para clientes de diversos segmentos</p>
+      <h2 class="text-3xl font-bold text-white section-title">PORTFÓLIO</h2>
+      <p class="text-slate-400 max-w-2xl mb-16">Alguns dos nossos trabalhos recentes para clientes de diversos segmentos</p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 gap-12">
         <!-- Burger Antes/Depois -->
-        <div class="professional-card overflow-hidden">
-          <div class="flex flex-col md:flex-row">
-            <div class="flex-1 p-4 border-r border-gray-100">
-              <div class="flex justify-center items-center h-64">
-                <img src="Fotos/burger-antes.jpg.jpg" alt="Foto Não Tratada - Hambúrguer" class="max-h-full max-w-full object-contain">
+        <div class="professional-card overflow-hidden bg-card-gradient">
+          <h3 class="text-xl font-bold text-white p-6 border-b border-slate-700">Edição de Imagens - Hambúrguer</h3>
+          <div class="portfolio-item md:flex-row">
+            <div class="flex-1 p-6 border-r border-slate-700">
+              <div class="img-container">
+                <img src="Fotos/burger-antes.jpg.jpg" alt="Foto Não Tratada - Hambúrguer" class="portfolio-img">
               </div>
-              <div class="p-4">
-                <h3 class="text-xl font-semibold text-gray-900 mb-2">Antes</h3>
-                <p class="text-gray-600 text-sm">Imagem original sem tratamento profissional.</p>
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-semibold text-white mb-2">Antes</h3>
+                <p class="text-slate-400">Imagem original sem tratamento profissional.</p>
               </div>
             </div>
-            <div class="flex-1 p-4">
-              <div class="flex justify-center items-center h-64">
-                <img src="Fotos/burger-depois.jpg.png" alt="Foto Tratada - Hambúrguer" class="max-h-full max-w-full object-contain">
+            <div class="flex-1 p-6">
+              <div class="img-container">
+                <img src="Fotos/burger-depois.jpg.png" alt="Foto Tratada - Hambúrguer" class="portfolio-img">
               </div>
-              <div class="p-4">
-                <h3 class="text-xl font-semibold text-gray-900 mb-2">Depois</h3>
-                <p class="text-gray-600 text-sm">Resultado após nosso processo de edição profissional.</p>
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-semibold text-white mb-2">Depois</h3>
+                <p class="text-slate-400">Resultado após nosso processo de edição profissional.</p>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Carro Antes/Depois -->
-        <div class="professional-card overflow-hidden">
-          <div class="flex flex-col md:flex-row">
-            <div class="flex-1 p-4 border-r border-gray-100">
-              <div class="flex justify-center items-center h-64">
-                <img src="Fotos/gol-antes.jpg.png" alt="Foto Não Tratada - Carro" class="max-h-full max-w-full object-contain">
+        <div class="professional-card overflow-hidden bg-card-gradient">
+          <h3 class="text-xl font-bold text-white p-6 border-b border-slate-700">Edição de Imagens - Automóvel</h3>
+          <div class="portfolio-item md:flex-row">
+            <div class="flex-1 p-6 border-r border-slate-700">
+              <div class="img-container">
+                <img src="Fotos/gol-antes.jpg.png" alt="Foto Não Tratada - Carro" class="portfolio-img">
               </div>
-              <div class="p-4">
-                <h3 class="text-xl font-semibold text-gray-900 mb-2">Antes</h3>
-                <p class="text-gray-600 text-sm">Fotografia original com potencial não explorado.</p>
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-semibold text-white mb-2">Antes</h3>
+                <p class="text-slate-400">Fotografia original com potencial não explorado.</p>
               </div>
             </div>
-            <div class="flex-1 p-4">
-              <div class="flex justify-center items-center h-64">
-                <img src="Fotos/gol-depois.jpg.png" alt="Foto Tratada - Carro" class="max-h-full max-w-full object-contain">
+            <div class="flex-1 p-6">
+              <div class="img-container">
+                <img src="Fotos/gol-depois.jpg.png" alt="Foto Tratada - Carro" class="portfolio-img">
               </div>
-              <div class="p-4">
-                <h3 class="text-xl font-semibold text-gray-900 mb-2">Depois</h3>
-                <p class="text-gray-600 text-sm">Transformação profissional com realce de qualidades.</p>
+              <div class="p-4 text-center">
+                <h3 class="text-xl font-semibold text-white mb-2">Depois</h3>
+                <p class="text-slate-400">Transformação profissional com realce de qualidades.</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
+        
       <!-- Web Design Samples -->
-      <div class="professional-card p-8 mt-12">
-        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Projetos de Web Design</h3>
+      <div class="professional-card p-8 mt-12 bg-card-gradient">
+        <h3 class="text-2xl font-bold text-white mb-6 text-center">Projetos de Web Design</h3>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-white rounded-lg overflow-hidden border border-gray-200 transition-all hover:shadow-lg">
-            <div class="h-48 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-              <i class="fas fa-wrench text-5xl text-blue-600"></i>
+          <div class="bg-slate-800 rounded-lg overflow-hidden border border-slate-700 transition-all hover:shadow-lg">
+            <div class="h-48 bg-gradient-to-br from-blue-900/50 to-blue-800/30 flex items-center justify-center">
+              <i class="fas fa-wrench text-5xl text-blue-500"></i>
             </div>
             <div class="p-4">
-              <h4 class="font-bold text-lg mb-2">Oficina Mecânica</h4>
-              <p class="text-gray-600 text-sm">Site institucional para oficina especializada</p>
-              <span class="inline-block mt-2 px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Destaque</span>
+              <h4 class="font-bold text-lg mb-2 text-white">Oficina Mecânica</h4>
+              <p class="text-slate-400 text-sm">Site institucional para oficina especializada</p>
+              <span class="inline-block mt-2 px-2 py-1 bg-blue-900/30 text-blue-400 text-xs rounded">Destaque</span>
             </div>
           </div>
-          <div class="bg-white rounded-lg overflow-hidden border border-gray-200 transition-all hover:shadow-lg">
-            <div class="h-48 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-              <i class="fas fa-stethoscope text-5xl text-blue-600"></i>
+          <div class="bg-slate-800 rounded-lg overflow-hidden border border-slate-700 transition-all hover:shadow-lg">
+            <div class="h-48 bg-gradient-to-br from-blue-900/50 to-blue-800/30 flex items-center justify-center">
+              <i class="fas fa-stethoscope text-5xl text-blue-500"></i>
             </div>
             <div class="p-4">
-              <h4 class="font-bold text-lg mb-2">Clínica Médica</h4>
-              <p class="text-gray-600 text-sm">Portal completo para clínica de saúde</p>
-              <span class="inline-block mt-2 px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Destaque</span>
+              <h4 class="font-bold text-lg mb-2 text-white">Clínica Médica</h4>
+              <p class="text-slate-400 text-sm">Portal completo para clínica de saúde</p>
+              <span class="inline-block mt-2 px-2 py-1 bg-blue-900/30 text-blue-400 text-xs rounded">Destaque</span>
             </div>
           </div>
-          <div class="bg-white rounded-lg overflow-hidden border border-gray-200 transition-all hover:shadow-lg">
-            <div class="h-48 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-              <i class="fas fa-car text-5xl text-blue-600"></i>
+          <div class="bg-slate-800 rounded-lg overflow-hidden border border-slate-700 transition-all hover:shadow-lg">
+            <div class="h-48 bg-gradient-to-br from-blue-900/50 to-blue-800/30 flex items-center justify-center">
+              <i class="fas fa-car text-5xl text-blue-500"></i>
             </div>
             <div class="p-4">
-              <h4 class="font-bold text-lg mb-2">Garagem Automotiva</h4>
-              <p class="text-gray-600 text-sm">Site para garagem com portfólio de serviços</p>
-              <span class="inline-block mt-2 px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Novo</span>
+              <h4 class="font-bold text-lg mb-2 text-white">Garagem Automotiva</h4>
+              <p class="text-slate-400 text-sm">Site para garagem com portfólio de serviços</p>
+              <span class="inline-block mt-2 px-2 py-1 bg-blue-900/30 text-blue-400 text-xs rounded">Novo</span>
             </div>
           </div>
         </div>
@@ -497,21 +545,21 @@
   </section>
 
   <!-- Depoimentos -->
-  <section id="testimonials" class="py-20 px-8 bg-white">
+  <section id="testimonials" class="py-20 px-8 bg-slate-800">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 section-title">CLIENTES E DEPOIMENTOS</h2>
-      <p class="text-gray-600 max-w-2xl mb-16">O que empresas que confiaram em nossos serviços têm a dizer</p>
+      <h2 class="text-3xl font-bold text-white section-title">CLIENTES E DEPOIMENTOS</h2>
+      <p class="text-slate-400 max-w-2xl mb-16">O que empresas que confiaram em nossos serviços têm a dizer</p>
       
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="testimonial-card">
+        <div class="testimonial-card bg-card-gradient">
           <div class="flex items-center mb-4">
             <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-4">RG</div>
             <div>
-              <h4 class="font-semibold">Ricardo Gonçalves</h4>
-              <p class="text-blue-600 text-sm">Dono - Restaurante Sabor & Arte</p>
+              <h4 class="font-semibold text-white">Ricardo Gonçalves</h4>
+              <p class="text-blue-400 text-sm">Dono - Restaurante Sabor & Arte</p>
             </div>
           </div>
-          <p class="text-gray-700">"As imagens tratadas pela Aesthetic Impact aumentaram em 40% o engajamento em nossas redes sociais e resultaram em um crescimento real nas vendas. Profissionalismo e qualidade excepcionais!"</p>
+          <p class="text-slate-300">"As imagens tratadas pela Aesthetic Impact aumentaram em 40% o engajamento em nossas redes sociais e resultaram em um crescimento real nas vendas. Profissionalismo e qualidade excepcionais!"</p>
           <div class="flex mt-4">
             <i class="fas fa-star text-yellow-400"></i>
             <i class="fas fa-star text-yellow-400"></i>
@@ -521,15 +569,15 @@
           </div>
         </div>
         
-        <div class="testimonial-card">
+        <div class="testimonial-card bg-card-gradient">
           <div class="flex items-center mb-4">
             <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-4">CS</div>
             <div>
-              <h4 class="font-semibold">Carla Santos</h4>
-              <p class="text-blue-600 text-sm">Diretora - AutoPeças Premium</p>
+              <h4 class="font-semibold text-white">Carla Santos</h4>
+              <p class="text-blue-400 text-sm">Diretora - AutoPeças Premium</p>
             </div>
           </div>
-          <p class="text-gray-700">"O site desenvolvido pela equipe transmite profissionalismo e confiança, valores essenciais para nosso segmento. Percebemos um aumento de 35% nas solicitações de orçamento após o lançamento."</p>
+          <p class="text-slate-300">"O site desenvolvido pela equipe transmite profissionalismo e confiança, valores essenciais para nosso segmento. Percebemos um aumento de 35% nas solicitações de orçamento após o lançamento."</p>
           <div class="flex mt-4">
             <i class="fas fa-star text-yellow-400"></i>
             <i class="fas fa-star text-yellow-400"></i>
@@ -542,16 +590,16 @@
       
       <!-- Clientes -->
       <div class="mt-16">
-        <h3 class="text-xl font-semibold text-gray-900 mb-8 text-center">Alguns de Nossos Clientes</h3>
+        <h3 class="text-xl font-semibold text-white mb-8 text-center">Alguns de Nossos Clientes</h3>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-8 items-center">
-          <div class="client-logo h-16 bg-gray-100 rounded flex items-center justify-center">
-            <span class="font-semibold text-gray-500">AutoCenter</span>
+          <div class="client-logo h-16 bg-slate-700 rounded flex items-center justify-center">
+            <span class="font-semibold text-slate-300">AutoCenter</span>
           </div>
-          <div class="client-logo h-16 bg-gray-100 rounded flex items-center justify-center">
-            <span class="font-semibold text-gray-500">Clínica Saúde</span>
+          <div class="client-logo h-16 bg-slate-700 rounded flex items-center justify-center">
+            <span class="font-semibold text-slate-300">Clínica Saúde</span>
           </div>
-          <div class="client-logo h-16 bg-gray-100 rounded flex items-center justify-center">
-            <span class="font-semibold text-gray-500">Gourmet</span>
+          <div class="client-logo h-16 bg-slate-700 rounded flex items-center justify-center">
+            <span class="font-semibold text-slate-300">Gourmet</span>
           </div>
         </div>
       </div>
@@ -559,43 +607,43 @@
   </section>
 
   <!-- Contato -->
-  <section id="contact" class="py-20 px-8 dark-section">
+  <section id="contact" class="py-20 px-8 bg-slate-900">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-3xl font-bold text-white section-title">CONTATO</h2>
-      <p class="text-gray-300 max-w-2xl mb-16">Entre em contato para discutir como podemos potencializar sua presença visual</p>
+      <p class="text-slate-400 max-w-2xl mb-16">Entre em contato para discutir como podemos potencializar sua presença visual</p>
       
       <div class="grid md:grid-cols-3 gap-8">
         <!-- WhatsApp -->
-        <div class="professional-card p-8 text-center">
+        <div class="professional-card p-8 text-center bg-card-gradient">
           <div class="service-icon">
             <i class="fab fa-whatsapp"></i>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-4">WhatsApp</h3>
-          <p class="text-gray-700 mb-6">Atendimento rápido e direto para orçamentos e dúvidas.</p>
+          <h3 class="text-xl font-bold text-white mb-4">WhatsApp</h3>
+          <p class="text-slate-300 mb-6">Atendimento rápido e direto para orçamentos e dúvidas.</p>
           <a href="https://wa.me/5544988084662" target="_blank" class="btn-primary w-full justify-center">
             <i class="fab fa-whatsapp mr-2"></i>Iniciar Conversa
           </a>
         </div>
         
         <!-- E-mail -->
-        <div class="professional-card p-8 text-center">
+        <div class="professional-card p-8 text-center bg-card-gradient">
           <div class="service-icon">
             <i class="fas fa-envelope"></i>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-4">E-mail</h3>
-          <p class="text-gray-700 mb-6">Para propostas detalhadas e documentação formal.</p>
+          <h3 class="text-xl font-bold text-white mb-4">E-mail</h3>
+          <p class="text-slate-300 mb-6">Para propostas detalhadas e documentação formal.</p>
           <a href="mailto:contato@aestheticimpact.com.br" class="btn-primary w-full justify-center">
             <i class="fas fa-envelope mr-2"></i>Enviar E-mail
           </a>
         </div>
         
         <!-- Instagram -->
-        <div class="professional-card p-8 text-center">
+        <div class="professional-card p-8 text-center bg-card-gradient">
           <div class="service-icon">
             <i class="fab fa-instagram"></i>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-4">Instagram</h3>
-          <p class="text-gray-700 mb-6">Acompanhe nosso trabalho e entre em contato.</p>
+          <h3 class="text-xl font-bold text-white mb-4">Instagram</h3>
+          <p class="text-slate-300 mb-6">Acompanhe nosso trabalho e entre em contato.</p>
           <a href="https://instagram.com/aestheticimpact" target="_blank" class="btn-primary w-full justify-center">
             <i class="fab fa-instagram mr-2"></i>Seguir
           </a>
@@ -603,25 +651,25 @@
       </div>
       
       <!-- Informações de Contato -->
-      <div class="professional-card p-8 mt-12">
-        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">INFORMAÇÕES DE CONTATO</h3>
+      <div class="professional-card p-8 mt-12 bg-card-gradient">
+        <h3 class="text-2xl font-bold text-white mb-6 text-center">INFORMAÇÕES DE CONTATO</h3>
         <div class="grid md:grid-cols-2 gap-6">
           <div class="flex items-center">
-            <div class="bg-blue-100 p-3 rounded-full mr-4">
-              <i class="fas fa-phone-alt text-blue-600"></i>
+            <div class="bg-blue-900/30 p-3 rounded-full mr-4">
+              <i class="fas fa-phone-alt text-blue-400"></i>
             </div>
             <div>
-              <p class="text-sm text-gray-600">Telefone</p>
-              <p class="font-medium">+55 (44) 98808-4662</p>
+              <p class="text-sm text-slate-400">Telefone</p>
+              <p class="font-medium text-white">+55 (44) 98808-4662</p>
             </div>
           </div>
           <div class="flex items-center">
-            <div class="bg-blue-100 p-3 rounded-full mr-4">
-              <i class="fas fa-map-marker-alt text-blue-600"></i>
+            <div class="bg-blue-900/30 p-3 rounded-full mr-4">
+              <i class="fas fa-map-marker-alt text-blue-400"></i>
             </div>
             <div>
-              <p class="text-sm text-gray-600">Localização</p>
-              <p class="font-medium">Maringá, PR</p>
+              <p class="text-sm text-slate-400">Localização</p>
+              <p class="font-medium text-white">Maringá, PR</p>
             </div>
           </div>
         </div>
@@ -630,7 +678,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-12 px-8 bg-gray-900 text-white">
+  <footer class="py-12 px-8 bg-slate-950 text-white">
     <div class="max-w-6xl mx-auto">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="mb-6 md:mb-0">
@@ -638,11 +686,11 @@
             <img src="Fotos/logo.png.png" alt="Logo Aesthetic Impact" class="h-10">
             <span class="text-xl font-bold text-white">AESTHETIC IMPACT</span>
           </div>
-          <p class="text-gray-400 mt-2">Transformação visual profissional para resultados extraordinários.</p>
+          <p class="text-slate-400 mt-2">Transformação visual profissional para resultados extraordinários.</p>
         </div>
         
         <div class="flex space-x-4">
-          <a href="https://wa.me/5544988084662" target="_blank" class="social-btn bg-green-500">
+          <a href="https://wa.me/5544988084662" target="_blank" class="social-btn bg-green-600">
             <i class="fab fa-whatsapp"></i>
           </a>
           <a href="https://instagram.com/aestheticimpact" target="_blank" class="social-btn bg-pink-600">
@@ -654,7 +702,7 @@
         </div>
       </div>
       
-      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+      <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-400 text-sm">
         <p>© 2024 Aesthetic Impact. Todos os direitos reservados.</p>
       </div>
     </div>
@@ -665,9 +713,58 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+          
+          // Fechar menu mobile após clicar em um link
+          document.getElementById('mobile-menu').classList.remove('open');
+        }
+      });
+    });
+
+    // Menu mobile
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.add('open');
+    });
+
+    document.getElementById('close-menu').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.remove('open');
+    });
+
+    // Fechar menu ao clicar fora dele
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('mobile-menu');
+      const menuButton = document.getElementById('mobile-menu-button');
+      
+      if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== menuButton && !menuButton.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
+
+    // Ativar links de navegação conforme a rolagem
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
       });
     });
   </script>
