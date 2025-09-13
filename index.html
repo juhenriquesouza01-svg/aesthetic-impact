@@ -201,27 +201,6 @@
     .bg-card-gradient {
       background: linear-gradient(135deg, var(--card-bg) 0%, #273549 100%);
     }
-   
-    .portfolio-img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      border-radius: 4px;
-    }
-   
-    .img-container {
-      overflow: hidden;
-      border-radius: 8px;
-      background: #1e293b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-   
-    .portfolio-item {
-      display: flex;
-      flex-direction: column;
-    }
 
     /* Cookie Consent Styles */
     .cookie-consent {
@@ -254,15 +233,56 @@
         transform: translate(-50%, 0);
       }
     }
-   
-    @media (max-width: 768px) {
-      .portfolio-item {
-        flex-direction: column;
-      }
+
+    .email-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1001;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .email-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .email-modal-content {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.3);
     }
   </style>
 </head>
 <body class="bg-dark-gradient">
+
+  <!-- Modal para exibir email -->
+  <div id="emailModal" class="email-modal">
+    <div class="email-modal-content">
+      <h3 class="text-xl font-bold text-white mb-4">Email de Contato</h3>
+      <p class="text-slate-300 mb-4">Para entrar em contato por email, utilize o endereço abaixo:</p>
+      <div class="bg-slate-800 p-4 rounded mb-4">
+        <p class="text-white font-mono text-center">aestheticmpact@gmail.com</p>
+      </div>
+      <button id="copyEmail" class="btn-primary w-full mb-2">
+        <i class="fas fa-copy mr-2"></i>Copiar Email
+      </button>
+      <button id="closeModal" class="btn-outline w-full">
+        <i class="fas fa-times mr-2"></i>Fechar
+      </button>
+    </div>
+  </div>
 
   <!-- Cookie Consent Banner -->
   <div id="cookieConsent" class="cookie-consent">
@@ -641,9 +661,9 @@
           </div>
           <h3 class="text-xl font-bold text-white mb-4">E-mail</h3>
           <p class="text-slate-300 mb-6">Para propostas detalhadas e documentação formal.</p>
-          <a href="mailto:aestheticmpact@gmail.com" class="btn-primary w-full justify-center">
-            <i class="fas fa-envelope mr-2"></i>Enviar E-mail
-          </a>
+          <button id="emailButton" class="btn-primary w-full justify-center">
+            <i class="fas fa-envelope mr-2"></i>Exibir E-mail
+          </button>
         </div>
        
         <!-- Instagram -->
@@ -705,9 +725,9 @@
           <a href="https://instagram.com/aestheticimpact" target="_blank" class="social-btn bg-pink-600">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="mailto:aestheticmpact@gmail.com" class="social-btn bg-blue-600">
+          <button id="footerEmailButton" class="social-btn bg-blue-600">
             <i class="fas fa-envelope"></i>
-          </a>
+          </button>
         </div>
       </div>
      
@@ -803,6 +823,53 @@
         localStorage.setItem('cookieConsent', 'rejected');
         cookieConsent.classList.remove('active');
       });
+    });
+
+    // Email Modal Functionality
+    const emailModal = document.getElementById('emailModal');
+    const emailButton = document.getElementById('emailButton');
+    const footerEmailButton = document.getElementById('footerEmailButton');
+    const closeModal = document.getElementById('closeModal');
+    const copyEmail = document.getElementById('copyEmail');
+
+    function openEmailModal() {
+      emailModal.classList.add('active');
+    }
+
+    function closeEmailModal() {
+      emailModal.classList.remove('active');
+    }
+
+    function copyEmailToClipboard() {
+      const email = 'aestheticmpact@gmail.com';
+      navigator.clipboard.writeText(email).then(() => {
+        // Altera o texto do botão temporariamente
+        copyEmail.innerHTML = '<i class="fas fa-check mr-2"></i>Email Copiado!';
+        setTimeout(() => {
+          copyEmail.innerHTML = '<i class="fas fa-copy mr-2"></i>Copiar Email';
+        }, 2000);
+      }).catch(err => {
+        console.error('Erro ao copiar email: ', err);
+      });
+    }
+
+    emailButton.addEventListener('click', openEmailModal);
+    footerEmailButton.addEventListener('click', openEmailModal);
+    closeModal.addEventListener('click', closeEmailModal);
+    copyEmail.addEventListener('click', copyEmailToClipboard);
+
+    // Fechar modal ao clicar fora dele
+    emailModal.addEventListener('click', function(e) {
+      if (e.target === emailModal) {
+        closeEmailModal();
+      }
+    });
+
+    // Fechar modal com a tecla ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && emailModal.classList.contains('active')) {
+        closeEmailModal();
+      }
     });
   </script>
 </body>
